@@ -22,19 +22,26 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="有意思比有意义本身更有意义">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://example.com/categories/index.html">
+  <meta name="description" content="自注意力机制学习了关于李宏毅的自注意力机制和Transformer相关内容 机器学习有三种情况的输出，分别为：  多个向量分别对应一个label 多个向量对应一个label 多个向量对应多个label">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自注意力机制">
+<meta property="og:url" content="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/index.html">
 <meta property="og:site_name" content="阿泳在快乐星球">
-<meta property="og:description" content="有意思比有意义本身更有意义">
+<meta property="og:description" content="自注意力机制学习了关于李宏毅的自注意力机制和Transformer相关内容 机器学习有三种情况的输出，分别为：  多个向量分别对应一个label 多个向量对应一个label 多个向量对应多个label">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-31T02:44:59.000Z">
-<meta property="article:modified_time" content="2023-07-31T02:45:48.210Z">
+<meta property="og:image" content="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331212311372.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331212451618.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331213219918.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331213702331.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331214024894.png">
+<meta property="article:published_time" content="2024-04-03T07:13:32.530Z">
+<meta property="article:modified_time" content="2024-04-03T07:14:45.457Z">
 <meta property="article:author" content="kimyong">
+<meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331212311372.png">
 
-<link rel="canonical" href="http://example.com/categories/">
+<link rel="canonical" href="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
 
 
 <script id="page-configurations">
@@ -42,13 +49,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类 | 阿泳在快乐星球
-</title>
+  <title>自注意力机制 | 阿泳在快乐星球</title>
   
 
 
@@ -160,51 +166,111 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="kimyong">
+      <meta itemprop="description" content="有意思比有意义本身更有意义">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿泳在快乐星球">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          自注意力机制
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">分类
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-<div class="post-meta">
+              <time title="创建时间：2024-04-03 15:13:32 / 修改时间：15:14:45" itemprop="dateCreated datePublished" datetime="2024-04-03T15:13:32+08:00">2024-04-03</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li><h1 id="自注意力机制"><a href="#自注意力机制" class="headerlink" title="自注意力机制"></a>自注意力机制</h1><p>学习了关于李宏毅的自注意力机制和Transformer相关内容</p>
+<p>机器学习有三种情况的输出，分别为：</p>
+<ul>
+<li>多个向量分别对应一个label</li>
+<li>多个向量对应一个label</li>
+<li>多个向量对应多个label <span id="more"></span></li>
+</ul>
+<p><img src="/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331212311372.png" alt="image-20240331212311372"></p>
+<h2 id="自注意力机制-1"><a href="#自注意力机制-1" class="headerlink" title="自注意力机制"></a>自注意力机制</h2><p><strong>Self-attention就是在使用的时候能够关注到整个句子的其他单词（向量）对于他的影响。</strong></p>
+<p><img src="/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331212451618.png" alt="image-20240331212451618"></p>
+<p>对于上图来说，$a^1$就是一个单词的向量。在后续计算的时候可以发现他很像是数据库中的操作，因此自注意力中的$q^1,k^1,v^1$分别是query，key和value的缩写。当你想计算$a^1$通过自注意力算法得到的向量（考虑了其他向量的），首先你需要知道所有节点的$q,k,v$（通过矩阵乘法计算，非常快，后续会说一下），之后将$q^1$与其他所有节点（包括自己）的$k$相乘并通过softmax得到相关值$a’_{1,1}…$（softmax的合为1）。之后将这些值乘以所有节点的$v$即得到$a^1$通过注意力机制转换的向量。</p>
+<p>下图是矩阵乘法计算QKV，可以看到其实计算出来非常的快，根据矩阵运算的本质就是将I分别放到$W^q,W^k,W^v$的空间。之后再通过矩阵QK来计算相似度。</p>
+<p><img src="/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331213219918.png" alt="image-20240331213219918"></p>
+<h2 id="多头注意力机制（Multi-head-Self-attention）"><a href="#多头注意力机制（Multi-head-Self-attention）" class="headerlink" title="多头注意力机制（Multi-head Self-attention）"></a>多头注意力机制（Multi-head Self-attention）</h2><p><img src="/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331213702331.png" alt="image-20240331213702331"></p>
+<p>与普通的注意力机制相似，只是做了两次attention后通过一个权重矩阵接起来（多头的好处是可以避免初始值造成的影响）。</p>
+<h2 id="位置编码（Positional-Encoding）"><a href="#位置编码（Positional-Encoding）" class="headerlink" title="位置编码（Positional Encoding）"></a>位置编码（Positional Encoding）</h2><p>但是目前的方法没有位置信息，因此我们需要加入一点位置区分，通常是人为设置，可以搜一下目前常用的位置编码方法。</p>
+<p><img src="/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331214024894.png" alt="image-20240331214024894"></p>
+<h2 id="自注意力与其他卷积方法的对比"><a href="#自注意力与其他卷积方法的对比" class="headerlink" title="自注意力与其他卷积方法的对比"></a>自注意力与其他卷积方法的对比</h2><p>CNN就是self-attention的特例，self-attention的范围是人决定的，而CNN是根据人为的感受野大小决定</p>
+<p>RNN不能并行处理，自注意力可以平行处理。并且如果要感知上下文的话需要使用双向RNN。</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="prev" title="GCN图卷积神经网络">
+      <i class="fa fa-chevron-left"></i> GCN图卷积神经网络
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <div class="category-all-page">
-            <div class="category-all-title">
-              暂无分类
-            </div>
-            <div class="category-all">
-              
-            </div>
-          </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
@@ -255,6 +321,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">自注意力机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6-1"><span class="nav-number">1.1.</span> <span class="nav-text">自注意力机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%EF%BC%88Multi-head-Self-attention%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">多头注意力机制（Multi-head Self-attention）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81%EF%BC%88Positional-Encoding%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">位置编码（Positional Encoding）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E4%B8%8E%E5%85%B6%E4%BB%96%E5%8D%B7%E7%A7%AF%E6%96%B9%E6%B3%95%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-number">1.4.</span> <span class="nav-text">自注意力与其他卷积方法的对比</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
