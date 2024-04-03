@@ -22,26 +22,36 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="自注意力机制学习了关于李宏毅的自注意力机制和Transformer相关内容 机器学习有三种情况的输出，分别为：  多个向量分别对应一个label 多个向量对应一个label 多个向量对应多个label">
+  <meta name="description" content="Transformer学习了李宏毅的Transformer视频，需要了解的知识： 自注意力机制 首先介绍一下Sequence-to-sequence问题（Seq2seq）,输出的长度取决于模型。比如语音识别和翻译。 主要有两步，编码和解码：  Encoder操作先介绍一下Encoder中常用的一些操作，如下图。首先通过自注意力机制得到的向量通常会加上自己的向量，这步操作叫做residual（剩余">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自注意力机制">
-<meta property="og:url" content="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/index.html">
+<meta property="og:title" content="Transformer">
+<meta property="og:url" content="http://example.com/2024/04/03/Transformer/index.html">
 <meta property="og:site_name" content="阿泳在快乐星球">
-<meta property="og:description" content="自注意力机制学习了关于李宏毅的自注意力机制和Transformer相关内容 机器学习有三种情况的输出，分别为：  多个向量分别对应一个label 多个向量对应一个label 多个向量对应多个label">
+<meta property="og:description" content="Transformer学习了李宏毅的Transformer视频，需要了解的知识： 自注意力机制 首先介绍一下Sequence-to-sequence问题（Seq2seq）,输出的长度取决于模型。比如语音识别和翻译。 主要有两步，编码和解码：  Encoder操作先介绍一下Encoder中常用的一些操作，如下图。首先通过自注意力机制得到的向量通常会加上自己的向量，这步操作叫做residual（剩余">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331212311372.png">
-<meta property="og:image" content="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331212451618.png">
-<meta property="og:image" content="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331213219918.png">
-<meta property="og:image" content="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331213702331.png">
-<meta property="og:image" content="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331214024894.png">
-<meta property="article:published_time" content="2024-04-03T07:13:32.530Z">
-<meta property="article:modified_time" content="2024-04-03T07:14:45.457Z">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331221631010.png">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331221928030.png">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331222058961.png">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331222334850.png">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331222809908.png">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331222927444.png">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331223054831.png">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331223849380.png">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331223920862.png">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331230612940.png">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331231117761.png">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331231244150.png">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331231456822.png">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331231620255.png">
+<meta property="og:image" content="http://example.com/2024/04/03/Transformer/image-20240331231556940.png">
+<meta property="article:published_time" content="2024-04-03T07:19:32.189Z">
+<meta property="article:modified_time" content="2024-04-03T07:20:48.785Z">
 <meta property="article:author" content="kimyong">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331212311372.png">
+<meta name="twitter:image" content="http://example.com/2024/04/03/Transformer/image-20240331221631010.png">
 
-<link rel="canonical" href="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
+<link rel="canonical" href="http://example.com/2024/04/03/Transformer/">
 
 
 <script id="page-configurations">
@@ -54,7 +64,7 @@
   };
 </script>
 
-  <title>自注意力机制 | 阿泳在快乐星球</title>
+  <title>Transformer | 阿泳在快乐星球</title>
   
 
 
@@ -174,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/03/Transformer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -187,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          自注意力机制
+          Transformer
         </h1>
 
         <div class="post-meta">
@@ -198,7 +208,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-04-03 15:13:32 / 修改时间：15:14:45" itemprop="dateCreated datePublished" datetime="2024-04-03T15:13:32+08:00">2024-04-03</time>
+              <time title="创建时间：2024-04-03 15:19:32 / 修改时间：15:20:48" itemprop="dateCreated datePublished" datetime="2024-04-03T15:19:32+08:00">2024-04-03</time>
             </span>
 
           
@@ -220,25 +230,44 @@
 
       
         <ul>
-<li><h1 id="自注意力机制"><a href="#自注意力机制" class="headerlink" title="自注意力机制"></a>自注意力机制</h1><p>学习了关于李宏毅的自注意力机制和Transformer相关内容</p>
-<p>机器学习有三种情况的输出，分别为：</p>
+<li><h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><p>学习了李宏毅的Transformer视频，需要了解的知识：</p>
+<p><a target="_blank" rel="noopener" href="https://kimyong.top/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">自注意力机制</a></p>
+<p>首先介绍一下Sequence-to-sequence问题（Seq2seq）,输出的长度取决于模型。比如语音识别和翻译。</p>
+<p>主要有两步，编码和解码：</p>
+<p><img src="/2024/04/03/Transformer/image-20240331221631010.png" alt="image-20240331221631010"></p>
+<h2 id="Encoder操作"><a href="#Encoder操作" class="headerlink" title="Encoder操作"></a>Encoder操作</h2><p>先介绍一下Encoder中常用的一些操作，如下图。首先通过自注意力机制得到的向量通常会加上自己的向量，这步操作叫做residual（剩余的），没说为什么这样设计。之后通过norm操作，即归一化（详情看图）。如果是前向神经网络（FC&#x3D;Full Connected&#x3D;全连接）网络也是通过residual操作并通过norm。</p>
+<p><img src="/2024/04/03/Transformer/image-20240331221928030.png" alt="image-20240331221928030"></p>
+<p>接下来看Transformer是如何设计Encoder的，如下图，对输入向量加入位置信息（自注意力机制中有提过），之后使用多头注意力机制，Add表示residual操作，Norm就是Norm，之后通过前向传播，再通过Add和Norm。</p>
+<p><img src="/2024/04/03/Transformer/image-20240331222058961.png" alt="image-20240331222058961"></p>
+<p>但这个顺序其实是可以更改的，如下图。区别在于（b）是每次都先Norm在进行操作，之后加上原值。</p>
+<p><img src="/2024/04/03/Transformer/image-20240331222334850.png" alt="image-20240331222334850"></p>
+<h2 id="Decoder操作"><a href="#Decoder操作" class="headerlink" title="Decoder操作"></a>Decoder操作</h2><p>Decoder的流程如下图（autoregressive），第一次输出Begin，之后每次输出一个字，并将输出的字作为输出放进下一次输入。</p>
+<p><img src="/2024/04/03/Transformer/image-20240331222809908.png" alt="image-20240331222809908"></p>
+<p>Masked Self-attention与Self-attention的区别在于一个是同时输入所有向量，一个是只能看到当前向量前面的向量。这是因为在Decoder中字是一个一个产生的，他只能考虑左边的东西。</p>
+<p><img src="/2024/04/03/Transformer/image-20240331222927444.png" alt="image-20240331222927444"></p>
+<p>那如果让Decoder按照上面的流程一个字一个字的输出，该如何终止？因此需要设置一个终止标记，当达到终止标记时即句子输出完成。</p>
+<p><img src="/2024/04/03/Transformer/image-20240331223054831.png" alt="image-20240331223054831"></p>
+<p>另外还有一个中止的方法，上面的这个输出一个字并把它作为输入迭代进入Decoder直到终止标记的方法叫做AT。另外下图右边这种放入多个Begin并输出的方式叫做Non-autoregressive（NAT），end右边可以不用看了。但是需要另外的方法去确定句子长度（预测或人为给定）。</p>
+<h2 id="Transformer的运作机制（cross-attention）"><a href="#Transformer的运作机制（cross-attention）" class="headerlink" title="Transformer的运作机制（cross attention）"></a>Transformer的运作机制（cross attention）</h2><p>如下图所示，其中两个箭头来自encoder，一个箭头来自masked多头注意力。</p>
+<p><img src="/2024/04/03/Transformer/image-20240331223849380.png" alt="image-20240331223849380"></p>
+<p>如下图所示，左边是Encoder得到的向量，计算它们的kv值，右边是输出的<strong>一个</strong>单词计算他的q值，通过他们的qkv值来计算输出并输入FC（全连接网络）。</p>
+<p><img src="/2024/04/03/Transformer/image-20240331223920862.png" alt="image-20240331223920862"></p>
+<p>值得注意的是在训练的时候输入的全是每个单词的正确答案，这叫做teacher forcing，另外为了提高准确度，我们会给定错误的单词训练（google员工说的，实际上确实）。</p>
+<p><img src="/2024/04/03/Transformer/image-20240331230612940.png" alt="image-20240331230612940"></p>
+<h2 id="其他的知识"><a href="#其他的知识" class="headerlink" title="其他的知识"></a>其他的知识</h2><h3 id="复制模型：pointer-network"><a href="#复制模型：pointer-network" class="headerlink" title="复制模型：pointer network"></a>复制模型：pointer network</h3><p>例如：</p>
 <ul>
-<li>多个向量分别对应一个label</li>
-<li>多个向量对应一个label</li>
-<li>多个向量对应多个label <span id="more"></span></li>
+<li>你好，我叫<strong>库洛洛</strong></li>
+<li><strong>库洛洛</strong>你好，我有什么可以帮到你。</li>
 </ul>
-<p><img src="/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331212311372.png" alt="image-20240331212311372"></p>
-<h2 id="自注意力机制-1"><a href="#自注意力机制-1" class="headerlink" title="自注意力机制"></a>自注意力机制</h2><p><strong>Self-attention就是在使用的时候能够关注到整个句子的其他单词（向量）对于他的影响。</strong></p>
-<p><img src="/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331212451618.png" alt="image-20240331212451618"></p>
-<p>对于上图来说，$a^1$就是一个单词的向量。在后续计算的时候可以发现他很像是数据库中的操作，因此自注意力中的$q^1,k^1,v^1$分别是query，key和value的缩写。当你想计算$a^1$通过自注意力算法得到的向量（考虑了其他向量的），首先你需要知道所有节点的$q,k,v$（通过矩阵乘法计算，非常快，后续会说一下），之后将$q^1$与其他所有节点（包括自己）的$k$相乘并通过softmax得到相关值$a’_{1,1}…$（softmax的合为1）。之后将这些值乘以所有节点的$v$即得到$a^1$通过注意力机制转换的向量。</p>
-<p>下图是矩阵乘法计算QKV，可以看到其实计算出来非常的快，根据矩阵运算的本质就是将I分别放到$W^q,W^k,W^v$的空间。之后再通过矩阵QK来计算相似度。</p>
-<p><img src="/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331213219918.png" alt="image-20240331213219918"></p>
-<h2 id="多头注意力机制（Multi-head-Self-attention）"><a href="#多头注意力机制（Multi-head-Self-attention）" class="headerlink" title="多头注意力机制（Multi-head Self-attention）"></a>多头注意力机制（Multi-head Self-attention）</h2><p><img src="/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331213702331.png" alt="image-20240331213702331"></p>
-<p>与普通的注意力机制相似，只是做了两次attention后通过一个权重矩阵接起来（多头的好处是可以避免初始值造成的影响）。</p>
-<h2 id="位置编码（Positional-Encoding）"><a href="#位置编码（Positional-Encoding）" class="headerlink" title="位置编码（Positional Encoding）"></a>位置编码（Positional Encoding）</h2><p>但是目前的方法没有位置信息，因此我们需要加入一点位置区分，通常是人为设置，可以搜一下目前常用的位置编码方法。</p>
-<p><img src="/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20240331214024894.png" alt="image-20240331214024894"></p>
-<h2 id="自注意力与其他卷积方法的对比"><a href="#自注意力与其他卷积方法的对比" class="headerlink" title="自注意力与其他卷积方法的对比"></a>自注意力与其他卷积方法的对比</h2><p>CNN就是self-attention的特例，self-attention的范围是人决定的，而CNN是根据人为的感受野大小决定</p>
-<p>RNN不能并行处理，自注意力可以平行处理。并且如果要感知上下文的话需要使用双向RNN。</p>
+<h3 id="指导注意力"><a href="#指导注意力" class="headerlink" title="指导注意力"></a>指导注意力</h3><p>发现attention的得分颠三倒四的，应该你希望后面的基于前面一个生成，但attention得分却非常的乱，因此你可以使用monotonic attention，location-aware attention</p>
+<p><img src="/2024/04/03/Transformer/image-20240331231117761.png" alt="image-20240331231117761"></p>
+<h3 id="beam-search"><a href="#beam-search" class="headerlink" title="beam search"></a>beam search</h3><p>贪心不一定最好，取决于任务。</p>
+<p><img src="/2024/04/03/Transformer/image-20240331231244150.png" alt="image-20240331231244150"></p>
+<h3 id="optimizing-evaluation-metrics"><a href="#optimizing-evaluation-metrics" class="headerlink" title="optimizing evaluation metrics"></a>optimizing evaluation metrics</h3><p>训练的时候是每个单词作比较，而最后bleu score是整个句子作比较，因此可以直接把bleu score去训练。</p>
+<p><img src="/2024/04/03/Transformer/image-20240331231456822.png" alt="image-20240331231456822"></p>
+<h3 id="Scheduled-Sampling"><a href="#Scheduled-Sampling" class="headerlink" title="Scheduled Sampling"></a>Scheduled Sampling</h3><p>就是给一些错误的数据去训练提高鲁棒性。</p>
+<p><img src="/2024/04/03/Transformer/image-20240331231620255.png" alt="image-20240331231620255"></p>
+<p><img src="/2024/04/03/Transformer/image-20240331231556940.png" alt="image-20240331231556940"></p>
 </li>
 </ul>
 
@@ -259,13 +288,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="prev" title="GCN图卷积神经网络">
-      <i class="fa fa-chevron-left"></i> GCN图卷积神经网络
+    <a href="/2024/04/03/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" rel="prev" title="自注意力机制">
+      <i class="fa fa-chevron-left"></i> 自注意力机制
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/04/03/Transformer/" rel="next" title="Transformer">
-      Transformer <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -324,7 +350,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">自注意力机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6-1"><span class="nav-number">1.1.</span> <span class="nav-text">自注意力机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%EF%BC%88Multi-head-Self-attention%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">多头注意力机制（Multi-head Self-attention）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81%EF%BC%88Positional-Encoding%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">位置编码（Positional Encoding）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E4%B8%8E%E5%85%B6%E4%BB%96%E5%8D%B7%E7%A7%AF%E6%96%B9%E6%B3%95%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-number">1.4.</span> <span class="nav-text">自注意力与其他卷积方法的对比</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Transformer"><span class="nav-number">1.</span> <span class="nav-text">Transformer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encoder%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text">Encoder操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Decoder%E6%93%8D%E4%BD%9C"><span class="nav-number">1.2.</span> <span class="nav-text">Decoder操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transformer%E7%9A%84%E8%BF%90%E4%BD%9C%E6%9C%BA%E5%88%B6%EF%BC%88cross-attention%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">Transformer的运作机制（cross attention）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E7%9A%84%E7%9F%A5%E8%AF%86"><span class="nav-number">1.4.</span> <span class="nav-text">其他的知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E6%A8%A1%E5%9E%8B%EF%BC%9Apointer-network"><span class="nav-number">1.4.1.</span> <span class="nav-text">复制模型：pointer network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E5%AF%BC%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="nav-number">1.4.2.</span> <span class="nav-text">指导注意力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#beam-search"><span class="nav-number">1.4.3.</span> <span class="nav-text">beam search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#optimizing-evaluation-metrics"><span class="nav-number">1.4.4.</span> <span class="nav-text">optimizing evaluation metrics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scheduled-Sampling"><span class="nav-number">1.4.5.</span> <span class="nav-text">Scheduled Sampling</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
