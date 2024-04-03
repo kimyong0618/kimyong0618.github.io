@@ -22,30 +22,47 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="有意思比有意义本身更有意义">
-<meta property="og:type" content="website">
+  <meta name="description" content="GCN图卷积神经网络学习了同济子豪兄对GCN卷积的讲解。 图卷积神经网络的基础知识GCN本质上就是一种消息传递的节点计算图，他有几层就代表他通过几阶邻居来构建自己的嵌入，如下图，两层GCN网络表示它通过邻居和邻居的邻居来构建自己的嵌入。  如下图，$x_v$表示输入节点的向量，它可以是一个one-hot编码（就是使用二进制表示某个节点）。每一层都是将邻居的信息加权平均后乘以一个权重并通过激活函数（">
+<meta property="og:type" content="article">
 <meta property="og:title" content="阿泳在快乐星球">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="阿泳在快乐星球">
-<meta property="og:description" content="有意思比有意义本身更有意义">
+<meta property="og:description" content="GCN图卷积神经网络学习了同济子豪兄对GCN卷积的讲解。 图卷积神经网络的基础知识GCN本质上就是一种消息传递的节点计算图，他有几层就代表他通过几阶邻居来构建自己的嵌入，如下图，两层GCN网络表示它通过邻居和邻居的邻居来构建自己的嵌入。  如下图，$x_v$表示输入节点的向量，它可以是一个one-hot编码（就是使用二进制表示某个节点）。每一层都是将邻居的信息加权平均后乘以一个权重并通过激活函数（">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331203234331.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331203330312.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331204306351.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331204432620.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331204602015.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331204730429.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331204846157.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331205021774.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331205217389.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331205315505.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331205448852.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331210427476.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331211411270.png">
+<meta property="og:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331211431728.png">
+<meta property="article:published_time" content="2024-04-03T06:40:45.219Z">
+<meta property="article:modified_time" content="2024-04-03T06:42:26.805Z">
 <meta property="article:author" content="kimyong">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331203234331.png">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>阿泳在快乐星球</title>
+  <title> | 阿泳在快乐星球</title>
   
 
 
@@ -158,9 +175,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -176,10 +194,9 @@
       <meta itemprop="name" content="阿泳在快乐星球">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
+        <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -203,7 +220,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="GCN图卷积神经网络"><a href="#GCN图卷积神经网络" class="headerlink" title="GCN图卷积神经网络"></a>GCN图卷积神经网络</h1><p>学习了同济子豪兄对GCN卷积的讲解。</p>
+        <h1 id="GCN图卷积神经网络"><a href="#GCN图卷积神经网络" class="headerlink" title="GCN图卷积神经网络"></a>GCN图卷积神经网络</h1><p>学习了同济子豪兄对GCN卷积的讲解。</p>
 <h2 id="图卷积神经网络的基础知识"><a href="#图卷积神经网络的基础知识" class="headerlink" title="图卷积神经网络的基础知识"></a>图卷积神经网络的基础知识</h2><p>GCN本质上就是一种消息传递的节点计算图，他有几层就代表他通过几阶邻居来构建自己的嵌入，如下图，两层GCN网络表示它通过邻居和邻居的邻居来构建自己的嵌入。</p>
 <p><img src="/2024/04/03/%E3%80%90%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%E3%80%91GCN%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/image-20240331203234331.png" alt="image-20240331203234331"></p>
 <p>如下图，$x_v$表示输入节点的向量，它可以是一个one-hot编码（就是使用二进制表示某个节点）。每一层都是将邻居的信息加权平均后乘以一个权重并通过激活函数（这就是全连接神经网络）。</p>
@@ -258,93 +275,30 @@
 <li>测试集和验证集的损失函数是否出现了倒挂</li>
 </ul>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/26/%E5%88%9D%E6%AC%A1%E5%BB%BA%E7%AB%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="kimyong">
-      <meta itemprop="description" content="有意思比有意义本身更有意义">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿泳在快乐星球">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/26/%E5%88%9D%E6%AC%A1%E5%BB%BA%E7%AB%99/" class="post-title-link" itemprop="url">初次建站</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-07-26 13:57:29" itemprop="dateCreated datePublished" datetime="2023-07-26T13:57:29+08:00">2023-07-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-29 11:35:41" itemprop="dateModified" datetime="2023-08-29T11:35:41+08:00">2023-08-29</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="github-hexo搭建个人博客"><a href="#github-hexo搭建个人博客" class="headerlink" title="github+hexo搭建个人博客"></a>github+hexo搭建个人博客</h1><p>特别感谢知乎大佬枫叶的<a target="_blank" rel="noopener" href="https://www.zhihu.com/people/mai-nv-hai-de-xiao-huo-chai-35-19">从零开始搭建个人博客</a>，他的文章非常详尽的介绍了如何通过使用 github+hexo搭建个人博客。<br>下面是我个人按照他的流程搭建博客的步骤，持续更新遇到的问题和使用的技术（或许）：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/07/26/%E5%88%9D%E6%AC%A1%E5%BB%BA%E7%AB%99/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/07/26/%E5%88%9D%E6%AC%A1%E5%BB%BA%E7%AB%99/" rel="prev" title="初次建站">
+      <i class="fa fa-chevron-left"></i> 初次建站
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -397,6 +351,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GCN%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-number">1.</span> <span class="nav-text">GCN图卷积神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.1.</span> <span class="nav-text">图卷积神经网络的基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E7%9B%91%E7%9D%A3%E8%AE%AD%E7%BB%83"><span class="nav-number">1.1.1.</span> <span class="nav-text">有监督训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E7%9B%91%E7%9D%A3%E8%AE%AD%E7%BB%83"><span class="nav-number">1.1.2.</span> <span class="nav-text">自监督训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A8%E5%BC%8F%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BD%92%E7%BA%B3%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.3.</span> <span class="nav-text">直推式学习与归纳式学习的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CNN%E5%92%8CGCN%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.4.</span> <span class="nav-text">CNN和GCN的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E8%A1%A8%E8%BE%BE%E8%83%BD%E5%8A%9B"><span class="nav-number">1.2.</span> <span class="nav-text">图神经网络的表达能力</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">1.2.1.</span> <span class="nav-text">写在最后</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GCN%E8%B0%83%E5%8F%82%E6%8A%80%E5%B7%A7"><span class="nav-number">1.3.</span> <span class="nav-text">GCN调参技巧</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
