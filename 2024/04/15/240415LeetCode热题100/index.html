@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="LeetCode热题100其实有听说这种按照不同技巧分类来做题会导致人很容易丧失遇到陌生题时的解题能力。但公司面试的算法考核基本就是原题或原题的变体，我觉得不如直接把题目特点和技巧总结一下从而快速达到应试水准比较有效率。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode热题100">
+<meta property="og:url" content="http://example.com/2024/04/15/240415LeetCode%E7%83%AD%E9%A2%98100/index.html">
+<meta property="og:site_name" content="阿泳在快乐星球">
+<meta property="og:description" content="LeetCode热题100其实有听说这种按照不同技巧分类来做题会导致人很容易丧失遇到陌生题时的解题能力。但公司面试的算法考核基本就是原题或原题的变体，我觉得不如直接把题目特点和技巧总结一下从而快速达到应试水准比较有效率。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-15T12:47:39.573Z">
+<meta property="article:modified_time" content="2024-04-15T12:48:39.969Z">
+<meta property="article:author" content="kimyong">
+<meta property="article:tag" content="变成">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/04/15/240415LeetCode%E7%83%AD%E9%A2%98100/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>LeetCode热题100 | 阿泳在快乐星球</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">阿泳在快乐星球</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/15/240415LeetCode%E7%83%AD%E9%A2%98100/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="kimyong">
+      <meta itemprop="description" content="有意思比有意义本身更有意义">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿泳在快乐星球">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LeetCode热题100
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-04-15 20:47:39 / 修改时间：20:48:39" itemprop="dateCreated datePublished" datetime="2024-04-15T20:47:39+08:00">2024-04-15</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="LeetCode热题100"><a href="#LeetCode热题100" class="headerlink" title="LeetCode热题100"></a>LeetCode热题100</h1><p>其实有听说这种按照不同技巧分类来做题会导致人很容易丧失遇到陌生题时的解题能力。但公司面试的算法考核基本就是原题或原题的变体，我觉得不如直接把题目特点和技巧总结一下从而快速达到应试水准比较有效率。</p>
+ <span id="more"></span>
+
+<h2 id="哈希"><a href="#哈希" class="headerlink" title="哈希"></a>哈希</h2><p>哈希就是映射，要考虑如何构建映射。</p>
+<p>python中常用的构建映射的方法是字典：dict(), collections.defaultdict(List)</p>
+<p>比如第一个题目双数之和通过target-num和其他的num值来构建映射。</p>
+<p>第二个题目将排序后的字母组和排序前的字母组构建映射</p>
+<p>第三个题目有点变态，他将给的数组看作是一个哈希表，因为直接找某个数是否在哈希表中的时间复杂度是$O(1)$，并且通过寻找num-1是否在nums中来减少不必要的运算从而将$O(n^2)$的时间复杂度变为了$O(n)$。</p>
+<h2 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h2><p>双指针就是使用两个标记来记录数组的位置</p>
+<p>python中需要注意的是range（i，j）包括i但不到j</p>
+<p>第一题通过j来记录非零的数目和需要替换的位置</p>
+<p>第二题用ij记录两端位置，需要知道一点就是面积的宽由短边决定，因此只能移动短板</p>
+<p>第三题需要注意排序后如何找，暴力枚举是三重循环，但很容易发现当固定$a+b+c$中的$a$时，当第二重循环$b’&gt;b$，第三重循环找到的数值$c’&lt;c$是一定的，因此第二重循环和第三重循环可以优化成双指针。</p>
+<p>第四题可以用动态规划做，但是使用双指针会节省空间。需要想到当前接水量为$min(leftmax,rightmax)-height[当前]$，双指针$left,right$分别在两边，要知道在谁小谁移动的条件下，$left&gt;right$时，$leftmax&gt;rightmax$是一定的。通过反证法可以证明，如果$rightmax&gt;leftmax$，当$left$到达$leftmax$且$right$在$rightmax$时，除非$leftmax&gt;&#x3D;rightmax$，否则他只能向右移动，并且最终得到$right&gt;left$这与实际相反。</p>
+<h2 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h2><p>就是用队列来进行插入删除</p>
+<h2 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h2><p>第一题：和为k的子数组，用前缀和作差计算</p>
+<p>第二题：求滑动窗口的最大值，优先队列，复合最小堆</p>
+<p>第三题：最小的覆盖子串，利用双端指针，需要注意的是collections.Counter类的使用。</p>
+<h2 id="普通数组"><a href="#普通数组" class="headerlink" title="普通数组"></a>普通数组</h2><p>第一题：最小前缀和</p>
+<p>第二题：排序</p>
+<p>第三题：连续反转数组</p>
+<p>第四题：双数组前缀乘法（自己想的）；第二种不需要空间的方法是将一个数组作为输出另外一个数组用遍历去替代。</p>
+<p>第五题：通过将数组转换成哈希，用正负和下标位置来表示标记。</p>
+<h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><p>第一题：原文需要一种减少空间消耗的算法，因此使用标记来记录第一行和第一列是否需要置零，之后将第一行和第一列作为记录的空间。</p>
+<p>第二题：使用模拟去解决问题，重要的是知道终止条件是m*n</p>
+<p>第三题：原地旋转，需要注意终止条件是n&#x2F;&#x2F;2</p>
+<p>第四题：用Z字搜索，因为矩阵的行列按照升序排列，因此有一个特别好的性质，第一行的最后一列的数是第一行最大的，最后一列最小的，因此以此为起点，如果目标数比这个数大就往下找，如果目标数比这个数小就往左找。</p>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p>第一题：长度对齐+遍历</p>
+<p>第二题：使用迭代，记录上次的指针</p>
+<p>第三题：记录长度，折半，反转前面的列表，然后顺序遍历val</p>
+<p>第四题：利用哈希表进行存储</p>
+<p>第五题：与第四题相同，使用哈希存储</p>
+<p>第六题：迭代</p>
+<p>第七题：迭代</p>
+<p>第八题：迭代</p>
+<p>第九题：迭代，理清地址空间的交换</p>
+<p>第十题：模拟，最好将翻转列表单独写一个函数</p>
+<p>第十一题：递归+哈希</p>
+<p>第十二题：递归+两个有序排列</p>
+<p>第十三题：将十二题融合进来</p>
+<p>第十四题：本来是用两个字典做，但是发现时间复杂度得要6*10的8次方，必须得要n或者常数，因此使用哈希和双向链表做。</p>
+<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>第一题：递归</p>
+<p>第二题：遍历+函数列表（自己的做法），官方题解：深度优先搜索&#x2F;广度优先搜索</p>
+<p>第三题：广度优先搜索，需要知道python中list通常用于栈操作，而deque则为队列。</p>
+<p>第四题：递归，对称&#x3D;左子树镜像对称右子树&#x3D;节点值相同+节点的左子树镜像对称另一节点的右子树，节点的右子树镜像对称另一节点的左子树。</p>
+<p>第五题：递归，官方题解：深度优先搜索</p>
+<p>第六题：递归</p>
+<p>第七题：中序遍历（递归）+升序检验</p>
+<p>第八题：中序遍历</p>
+<p>第九题：递归，官方题解（深度优先+广度优先）</p>
+<p>第十题：</p>
+<p>python递归解法：认为当前节点的左子树和右子树都已经是先序顺序的链表了，因此将左子树放到右边，左子树的尾部接上右子树。可以发现我们需要两个返回值，一个是当前树的头，一个是当前树的尾。</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def <span class="title function_ invoke__">flatten</span>(<span class="keyword">self</span>, root: Optional[TreeNode]) <span class="punctuation">-&gt;</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">        Do not return anything, modify root in-place instead.</span></span><br><span class="line"><span class="string">        &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line">        def <span class="title function_ invoke__">digui</span>(root):</span><br><span class="line">            <span class="keyword">if</span> root==<span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span> root,root</span><br><span class="line">            </span><br><span class="line">            root_left,tail_left = <span class="title function_ invoke__">digui</span>(root.left)</span><br><span class="line">            root_right,tail_right = <span class="title function_ invoke__">digui</span>(root.right)</span><br><span class="line">            <span class="keyword">if</span> root_left==<span class="literal">None</span> and root_right==<span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span> root,root</span><br><span class="line">            <span class="keyword">if</span> root_left==<span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span> root,tail_right</span><br><span class="line">            <span class="keyword">if</span> root_right==<span class="literal">None</span>:</span><br><span class="line">                root.left = <span class="literal">None</span></span><br><span class="line">                root.right = root_left</span><br><span class="line">                <span class="keyword">return</span> root,tail_left</span><br><span class="line">            root.left = <span class="literal">None</span></span><br><span class="line">            root.right = root_left</span><br><span class="line">            tail_left.right = root_right</span><br><span class="line">            <span class="keyword">return</span> root,tail_right</span><br><span class="line">        <span class="title function_ invoke__">digui</span>(root)</span><br></pre></td></tr></table></figure>
+
+<p>第十一题：递归 ，这道题很难，很有意思</p>
+<p>第十二题：双重递归（递归套递归）</p>
+<p> ((root-&gt;val &#x3D;&#x3D; p-&gt;val || root-&gt;val &#x3D;&#x3D; q-&gt;val) &amp;&amp; (lson || rson))</p>
+<p>第十三题：最大单向（简化递归）。</p>
+<h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><p>第一题：深度优先算法，但值得注意的是他在外面用了迭代，并且传进去的数值会将原本图上的值设置为0</p>
+<h2 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h2><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><h2 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h2><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h2 id="多维动态规划"><a href="#多维动态规划" class="headerlink" title="多维动态规划"></a>多维动态规划</h2><h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8F%98%E6%88%90/" rel="tag"># 变成</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/04/11/240411%E8%A7%A3%E5%86%B3markdown%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%8D%A2%E5%AD%97%E4%BD%93%E9%97%AE%E9%A2%98/" rel="prev" title="解决MarkDown快捷键换字体颜色">
+      <i class="fa fa-chevron-left"></i> 解决MarkDown快捷键换字体颜色
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LeetCode%E7%83%AD%E9%A2%98100"><span class="nav-number">1.</span> <span class="nav-text">LeetCode热题100</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%88%E5%B8%8C"><span class="nav-number">1.1.</span> <span class="nav-text">哈希</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88"><span class="nav-number">1.2.</span> <span class="nav-text">双指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3"><span class="nav-number">1.3.</span> <span class="nav-text">滑动窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E4%B8%B2"><span class="nav-number">1.4.</span> <span class="nav-text">子串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E6%95%B0%E7%BB%84"><span class="nav-number">1.5.</span> <span class="nav-text">普通数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5"><span class="nav-number">1.6.</span> <span class="nav-text">矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8"><span class="nav-number">1.7.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.8.</span> <span class="nav-text">二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E8%AE%BA"><span class="nav-number">1.9.</span> <span class="nav-text">图论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%BA%AF"><span class="nav-number">1.10.</span> <span class="nav-text">回溯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">1.11.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%88"><span class="nav-number">1.12.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86"><span class="nav-number">1.13.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="nav-number">1.14.</span> <span class="nav-text">贪心算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">1.15.</span> <span class="nav-text">动态规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%BB%B4%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">1.16.</span> <span class="nav-text">多维动态规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E5%B7%A7"><span class="nav-number">1.17.</span> <span class="nav-text">技巧</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kimyong"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">kimyong</p>
+  <div class="site-description" itemprop="description">有意思比有意义本身更有意义</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kimyong</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
