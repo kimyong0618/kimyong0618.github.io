@@ -164,6 +164,82 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/17/240417%E4%BD%BF%E7%94%A8Git%E6%97%B6%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="kimyong">
+      <meta itemprop="description" content="有意思比有意义本身更有意义">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿泳在快乐星球">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/17/240417%E4%BD%BF%E7%94%A8Git%E6%97%B6%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5/" class="post-title-link" itemprop="url">使用Git时连接失败</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-04-17 22:53:46 / 修改时间：22:57:43" itemprop="dateCreated datePublished" datetime="2024-04-17T22:53:46+08:00">2024-04-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="使用Git时连接失败"><a href="#使用Git时连接失败" class="headerlink" title="使用Git时连接失败"></a>使用Git时连接失败</h1><p>今天在使用git 提交时发现一直显示fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com(后面是自己的)/">https://github.com(后面是自己的)</a>‘: Failed to connect to github.com port 443 after 21056 ms。</p>
+<p>从网上搜集资料后发现应该是我的git没有走自己的vpn代理</p>
+<p>因此设置如下：</p>
+<p>配置<strong>socks5代理</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy socks5 127.0.0.1:7890</span><br><span class="line">git config --global https.proxy socks5 127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+
+<p>配置<strong>http代理</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy 127.0.0.1:7890</span><br><span class="line">git config --global https.proxy 127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+
+<p>查看代理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --get http.proxy</span><br><span class="line">git config --global --get https.proxy</span><br></pre></td></tr></table></figure>
+
+<p>取消代理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+
+<p>其中的127.0.0.1 是你的主机号</p>
+<p>7890是你的vpn代理端口号</p>
+<p><img src="/2024/04/17/240417%E4%BD%BF%E7%94%A8Git%E6%97%B6%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5/image-20240417225742376.png" alt="image-20240417225742376"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/15/240415%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E5%99%A8%E8%B0%83%E5%8F%82%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -790,14 +866,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
